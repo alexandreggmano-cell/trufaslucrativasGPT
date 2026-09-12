@@ -5,8 +5,8 @@ import { useReveal } from '@/hooks/useReveal';
 
 const TESTIMONIALS: GalleryImage[] = [
   {
-    src: '/images/testimonials/Screenshot_57.png',
-    alt: 'Depoimento de cliente sobre os resultados praticando o método',
+    src: '/images/testimonials/cliente-1.jpg',
+    alt: 'Depoimento do Cliente 1 sobre os resultados praticando o método',
     label: 'Resultado de cliente',
   },
   {
