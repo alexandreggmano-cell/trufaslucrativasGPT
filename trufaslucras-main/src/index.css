@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap&font-display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #FFFBF5;
+  color: #2A1810;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #D9862E;
+  color: #FFFBF5;
+}
+
+@keyframes deliverableMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@layer components {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none;
+    animation: none;
+  }
+  .deliverable-marquee {
+    animation: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #D9862E #F5EBDD;
+  }
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-bold tracking-wide transition-all duration-300 sm:px-7 sm:py-4 sm:text-base;
+  }
+  .btn-cta:hover {
+    transform: translateY(-2px);
+  }
+  .btn-cta:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 639px) {
+  .deliverable-marquee {
+    scrollbar-width: none;
+  }
+
+  .deliverable-marquee::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .btn-cta {
+    @apply px-4 py-3 text-[13px];
+  }
+}
+
+@media (max-width: 639px) {
+  .reveal {
+    transition: none !important;
+  }
+  .animate-floatY,
+  .animate-pulseGlow {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+img {
+  content-visibility: auto;
+}
